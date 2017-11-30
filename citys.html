@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CitySelect</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- YDUI库 -->
+    <link rel="stylesheet" href="./css/ydui.css?rev=@@hash" />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/citys.css" />
+    <script src="./js/ydui.flexible.js"></script>
+</head>
+
+<body>
+    <section class="g-flexview">
+        <!--  -->
+        <header class="m-navbar">
+            <a href="###" class="navbar-item"><i class="back-ico"></i></a>
+            <div class="navbar-center"><span class="navbar-title">CitySelect</span></div>
+        </header>
+        <!-- select -->
+        <section class="g-scrollview">
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">所在地区：</div>
+                    <div class="cell-right cell-arrow">
+                        <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择收货地址">
+                    </div>
+                </div>
+            </div>
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">所在小区：</div>
+                    <div class="cell-right cell-arrow">
+                        <input type="text" class="cell-input" readonly id="area" placeholder="选择小区">
+                    </div>
+                </div>
+            </div>
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">详细地址：</div>
+                    <div class="cell-right">
+                        <input type="text" class="cell-input" placeholder="详细地址">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--选择小区-->
+        <div class="select_area_mask_shadow"></div>
+        <section class="select_area_mask animated" id="area_mask">
+            <div class="select_area">
+                <div class="select_wapper">
+                    <div class="select_logo">
+                        <img src="./images/myinfo.png" />
+                    </div>
+                    <img class="close" src="./images/guanbimask.png" />
+                </div>
+                <dl id="area_list">
+                    <!--title-->
+                    <dt>
+                    安徽省-蚌埠市-蚌山区
+                </dt>
+                    <!--lists-->
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                    <dd>安徽省龙湖香都小区</dd>
+                </dl>
+            </div>
+        </section>
+    </section>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./js/ydui.citys.js"></script>
+    <script src="./js/ydui.js"></script>
+    <script>
+        ! function() {
+            //引入dialog
+            var dialog = window.YDUI.dialog;
+            //picker
+            var $target = $('#J_Address');
+            $target.citySelect();
+            $target.on('click', function(event) {
+                event.stopPropagation();
+                $target.citySelect('open');
+            });
+            $target.on('done.ydui.cityselect', function(ret) {
+                $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            });
+            //小区
+            $('#area').on('click', function() {
+                let val = $target.val();
+                console.log(val)
+                if (!val) {
+                    dialog.toast('请先选择地区！', 'none', 1000, function() { });
+                    return;
+                }
+                $('.select_area_mask_shadow').fadeIn();
+                $('#area_mask').show().addClass('fadeInUp');
+                setTimeout(function() {
+                    $('#area_mask').removeClass('fadeInUp');
+                }, 500)
+            });
+            //关闭
+            $('.close, .select_area_mask_shadow').on('click', function(e) {
+                $('.select_area_mask_shadow').fadeOut();
+                $('#area_mask').addClass('fadeOutDown')
+                setTimeout(function() {
+                    $('#area_mask').removeClass('fadeOutDown').hide();
+                }, 500)
+            });
+            //小区列表
+            $('#area_list').find('dd').on('click', function() {
+                var val = $(this).html();
+                $('#area').val(val);
+                $('.select_area_mask_shadow').fadeOut();
+                $('#area_mask').addClass('fadeOutDown')
+                setTimeout(function() {
+                    $('#area_mask').removeClass('fadeOutDown').hide();
+                }, 500)
+            });
+        }();
+    </script>
+</body>
+
+</html>
