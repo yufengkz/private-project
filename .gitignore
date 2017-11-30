@@ -31,3 +31,7 @@ bower_components/
 
 # IDE/Editor data
 .idea
+
+#svn
+#.svn
+#*svn*
