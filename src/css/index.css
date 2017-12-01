@@ -317,3 +317,6 @@ html {
   background-position: center;
   background-size: .46rem .41rem;
 }
+.mescroll-totop {
+  bottom: 90px;
+}
