@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>功夫淘微商店</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- YDUI库 -->
+    <link rel="stylesheet" href="./css/ydui.css?rev=@@hash" />
+    <link rel="stylesheet" href="./css/mescroll.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/search.css" />
+    <script src="./js/ydui.flexible.js"></script>
+</head>
+
+<body>
+    <section class="g-flexview">
+        <!-- header -->
+        <header class="m-navbar">
+            <a href="###" class="class_ify">
+                <img src="./images/ico_classify.png" alt="">
+            </a>
+            <div class="search_box">
+                <input type="text" value="" placeholder="搜索您想要的商品名称">
+                <img src="./images/ico_search.png" alt="">
+            </div>
+            <a href="#" class="msg">
+                <img src="./images/ico_msg.png" alt="">
+                <span class="badge badge-danger">2</span>
+            </a>
+        </header>
+        <!-- main -->
+        <div class="classsify_tab">
+            <div class="m-grids-4">
+                <a id="all" href="/search_result.html?keyWords=all" class="grids-item">
+                    <div class="grids-txt"><span>综合</span></div>
+                </a>
+                <a id="countUp" href="/search_result.html?keyWords=countUp" class="grids-item">
+                    <div class="grids-txt"><span>销量<i class="ico_spread"></i></span></div>
+                </a>
+                <a id="priceUp" href="/search_result.html?keyWords=priceUp" class="grids-item">
+                    <div class="grids-txt"><span>价格<i class="ico_spread"></i></span></div>
+                </a>
+                <a href="javascript:;" class="grids-item">
+                    <div class="grids-txt"><span>筛选<i class="ico_spread"></i></span></div>
+                </a>
+            </div>
+        </div>
+        <div id="mescroll" class="mescroll">
+            <div class="mescroll-bounce">
+                <ul id="dataList" class="m-list list-theme1">
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./js/ydui.citys.js"></script>
+<script src="./js/ydui.js"></script>
+<script src="./js/mescroll.min.js"></script>
+<script src="./js/mescroll-option.js"></script>
+<script>
+    $(function () {
+        //获取url里的关键字
+        var keyWords = YDUI.util.getQueryString('keyWords');
+        var url = './data/data.json';
+        $('#' + keyWords).addClass('active').siblings().removeClass('active');
+        url += '?keyWords=' + keyWords; //设置不同的接口
+        
+        //创建MeScroll对象
+        var mescroll = new MeScroll("mescroll", {
+            down: {
+                auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                callback: downCallback //下拉刷新的回调
+            },
+            up: {
+                auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+                toTop: { //配置回到顶部按钮
+                    src: "../images/mescroll-totop.png", //默认滚动到1000px显示,可配置offset修改
+                    //offset : 1000
+                }
+            }
+        });
+
+        /*下拉刷新的回调 */
+        function downCallback() {
+            //联网加载数据
+            getListDataFromNet(0, 1, function (data) {
+                //联网成功的回调,隐藏下拉刷新的状态
+                mescroll.endSuccess();
+                //设置列表数据
+                setListData(data, false);
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新的状态
+                mescroll.endErr();
+            });
+        }
+
+        /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+        function upCallback(page) {
+            //联网加载数据
+            getListDataFromNet(page.num, page.size, function (curPageData) {
+                //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+                console.log("page.num=" + page.num + ", page.size=" + page.size + ", curPageData.length=" + curPageData.length);
+
+                //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                //mescroll.endByPage(curPageData.length, totalPage); //必传参数(当前页的数据个数, 总页数)
+
+                //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                //mescroll.endBySize(curPageData.length, totalSize); //必传参数(当前页的数据个数, 总数据量)
+
+                //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                //mescroll.endSuccess(curPageData.length, hasNext); //必传参数(当前页的数据个数, 是否有下一页true/false)
+
+                //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据,如果传了hasNext,则翻到第二页即可显示无更多数据.
+                mescroll.endSuccess(curPageData.length);
+
+                //设置列表数据
+                setListData(curPageData, true);
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+                mescroll.endErr();
+            });
+        }
+
+        /*设置列表数据*/
+        function setListData(curPageData, isAppend) {
+            var listDom = document.getElementById('dataList');
+            for (var i = 0; i < curPageData.length; i++) {
+                var pd = curPageData[i];
+
+                var str = '<a href="/goods_detail.html" class="list-item">';
+                str += '    <div class="list-img">';
+                str += '        <img src="' + pd.pdImg + '">';
+                str += '    </div>';
+                str += '    <div class="list-mes">';
+                str += '        <h3 class="list-title">' + pd.pdName + '</h3>';
+                str += '        <div class="list-mes-item">';
+                str += '            <div>';
+                str += '                <span class="list-price"><em>¥</em>' + pd.pdPrice + '</span>';
+                str += '                <span class="list-del-price">(已售' + pd.pdSold + '件)</span>';
+                str += '            </div>';
+                str += '            <!--<div>right</div>-->';
+                str += '        </div>';
+                str += '    </div>';
+                str += '</a>';
+
+                var liDom = document.createElement('li');
+                liDom.innerHTML = str;
+
+                if (isAppend) {
+                    listDom.appendChild(liDom); //加在列表的后面,上拉加载
+                } else {
+                    listDom.insertBefore(liDom, listDom.firstChild); //加在列表的前面,下拉刷新
+                }
+            }
+        }
+
+        /*联网加载列表数据*/
+        var downIndex = 0;
+
+        function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
+            //延时一秒,模拟联网
+            setTimeout(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    //url: '../res/pdlist1.json?num='+pageNum+'&size='+pageSize,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(url)
+                        var listData = [];
+
+                        if (pageNum == 0) {
+                            //此处模拟下拉刷新返回的数据
+                            var i = Math.floor(Math.random() * data.length); //随机取一个商品返回
+                            data[i].pdName = '【新增商品】 商品标题';
+                            listData.push(data[i]);
+
+                        } else {
+                            //此处模拟上拉加载返回的数据 (模拟分页数据)
+                            for (var i = (pageNum - 1) * pageSize; i < pageNum * pageSize; i++) {
+                                if (i == data.length) break;
+                                listData.push(data[i]);
+                            }
+                        }
+
+                        //回调
+                        successCallback(listData);
+                    },
+                    error: errorCallback
+                });
+            }, 2000)
+        }
+
+        //禁止PC浏览器拖拽图片,避免与下拉刷新冲突;如果仅在移动端使用,可删除此代码
+        document.ondragstart = function () {
+            return false;
+        }
+    });
+</script>
+
+</html>

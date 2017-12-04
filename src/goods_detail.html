@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- YDUI库 -->
+    <link rel="stylesheet" href="./css/ydui.css?rev=@@hash" />
+    <link rel="stylesheet" href="./css/mescroll.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/goods_detail.css" />
+    <script src="./js/ydui.flexible.js"></script>
+</head>
+
+<body>
+    <section class="g-flexview">
+
+        <!--slider-->
+        <div class="banner">
+            <div class="m-slider" data-ydui-slider="{autoplay: 3000}">
+                <!-- 参数在这里 -->
+                <div class="slider-wrapper">
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-pagination"></div>
+                <!-- 分页标识 -->
+            </div>
+            <div class="goods_title">
+                <div class="lt_side">
+                    <h2>Apple iPhone X (A1865) 64GB  银色 移动联通电信4G手机</h2>
+                    <div class="list-mes-item">
+                        <span class="list-price"><em>¥</em>34.7</span>
+                        <span class="list-del-price">销量：45笔</span>
+                    </div>
+                </div>
+                <div class="rt_side" id="collect">
+                    <a href="javascript:;" class="grids-item">
+                        <div class="grids-icon">
+                            <i class="icon-like-outline"></i>
+                            <!--<i class="icon-like"></i>-->
+                        </div>
+                        <div class="grids-txt">收藏</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- main -->
+        <div class="m-tab" data-ydui-tab>
+            <!-- 这里添加data-ydui-tab就可以啦 -->
+            <ul class="tab-nav">
+                <li class="tab-nav-item tab-active"><a href="javascript:;">商品详情</a></li>
+                <li class="tab-nav-item"><a href="javascript:;">评价(4.5分)</a></li>
+            </ul>
+            <div class="tab-panel">
+                <div class="tab-panel-item goods_detail tab-active">
+                    <img src="./images/goods.png" alt="">
+                    <img src="./images/goods.png" alt="">
+                    <img src="./images/goods.png" alt="">
+                </div>
+                <div class="tab-panel-item">
+                    <ul class="evaluate_box">
+                        <li>
+                            <div class="evaluate">
+                                <div class="evaluate_header">
+                                    <div>
+                                        <img src="./images/mescroll-bb1.png" alt="">
+                                    </div>
+                                    <p>老王</p>
+                                </div>
+                                <span>2017-12-04</span>
+                            </div>
+                            <div class="msg">
+                                音质很好，虽然可能不太取悦耳朵，但能听到原来的很多很多问题！耳机很舒服，革罩很柔软，真的很好~
+                            </div>
+                        </li>
+                        <li>
+                            <div class="evaluate">
+                                <div class="evaluate_header">
+                                    <div>
+                                        <img src="./images/mescroll-bb1.png" alt="">
+                                    </div>
+                                    <p>老王</p>
+                                </div>
+                                <span>2017-12-04</span>
+                            </div>
+                            <div class="msg">
+                                音质很好，虽然可能不太取悦耳朵，但能听到原来的很多很多问题！耳机很舒服，革罩很柔软，真的很好~
+                            </div>
+                        </li>
+                        <li>
+                            <div class="evaluate">
+                                <div class="evaluate_header">
+                                    <div>
+                                        <img src="./images/mescroll-bb1.png" alt="">
+                                    </div>
+                                    <p>老王</p>
+                                </div>
+                                <span>2017-12-04</span>
+                            </div>
+                            <div class="msg">
+                                音质很好，虽然可能不太取悦耳朵，但能听到原来的很多很多问题！耳机很舒服，革罩很柔软，真的很好~
+                            </div>
+                        </li>
+                        <li>
+                            <div class="evaluate">
+                                <div class="evaluate_header">
+                                    <div>
+                                        <img src="./images/mescroll-bb1.png" alt="">
+                                    </div>
+                                    <p>老王</p>
+                                </div>
+                                <span>2017-12-04</span>
+                            </div>
+                            <div class="msg">
+                                音质很好，虽然可能不太取悦耳朵，但能听到原来的很多很多问题！耳机很舒服，革罩很柔软，真的很好~
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- car -->
+        <div class="foot_nav">
+            <ul>
+                <li>
+                    <a href="tel:1862020202s">
+                        <div class="grids-icon">
+                            <i class="icon-phone2"></i>
+                        </div>
+                        <div class="grids-txt"><span>联系商家</span></div>
+                    </a>
+                </li>
+                <li>
+                    <div class="grids-icon">
+                        <!--<img src="./images/ico_car_c.png" alt="">-->
+                        <i class="icon-shopcart-outline"></i>
+                        <span class="badge badge-danger">2</span>
+                    </div>
+                    <div class="grids-txt"><span>购物车</span></div>
+                </li>
+                <li class="add">加入购物车</li>
+                <li class="buy">立刻购买</li>
+            </ul>
+        </div>
+
+        <div class="shadow">
+            <div class="car">
+                <i class="close_btn"></i>
+                <div class="car_box">
+                    <div class="car_head">
+                        <a href="###">
+                            <img src="./img/header.png" alt="">
+                        </a>
+                        <div>
+                            <p><span class="list-price"><em>¥</em>34.7</span></p>
+                            <p>库存2312</p>
+                            <p>请选择规格、颜色等</p>
+                        </div>
+                    </div>
+                    <div class="skus">
+                        <h5>尺码：</h5>
+                        <p>
+                            <a class="on" href="#">65G</a>
+                            <a href="#">65G</a>
+                        </p>
+                    </div>
+                    <div class="skus">
+                        <h5>颜色：</h5>
+                        <p>
+                            <a class="on" href="#">红色</a>
+                            <a href="#">黑色</a>
+                            <a href="#">银色</a>
+                        </p>
+                    </div>
+                    <div class="count">
+                        <div class="J_Qtxt">
+                            购买数量：
+                        </div>
+                        <span class="m-spinner" id="J_Quantity">
+                            <a href="javascript:;" class="J_Del"></a>
+                            <input type="text" class="J_Input" value="1" placeholder=""/>
+                            <a href="javascript:;" class="J_Add"></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="car_btn">
+                    确定
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./js/ydui.citys.js"></script>
+<script src="./js/ydui.js"></script>
+<script src="./js/mescroll.min.js"></script>
+<script src="./js/mescroll-option.js"></script>
+<script>
+    $(function () {
+        //引入dialog
+        var dialog = window.YDUI.dialog;
+        $('#collect').click(function () {
+            var icon = $(this).find('i');
+            if (icon.hasClass('icon-like')) {
+                dialog.toast('已经添加收藏夹！', 'none', 1000, function () {});
+            } else {
+                icon.removeClass('icon-like-outline').addClass('icon-like');
+            }
+        });
+        //add
+        $('.add').click(function(){
+            $('.shadow').fadeIn();
+        });
+        //buy
+        $('.buy').click(function(){
+            $('.shadow').fadeIn();
+        });
+        //close
+        $('.close_btn, .car_btn').click(function(){
+            $('.shadow').fadeOut();
+        });
+        //skus
+        $('.skus p a').on('click', function(){
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+        //count
+        var max = 5;
+        $('#J_Quantity').spinner({
+            input: '.J_Input',
+            add: '.J_Add',
+            minus: '.J_Del',
+            unit: function () { //加减系数
+                return 1;
+            },
+            max: function () { //最大值
+                return max;
+            },
+            callback: function (value, $ele) {
+                // $ele 当前文本框[jQuery对象]
+                // $ele.css('background', '#FF5E53');
+                if($ele.val() == max){
+                    dialog.toast('已经添加到最大数值！', 'none', 1000, function () {});
+                }
+                console.log('值：' + value);
+            }
+        });
+    });
+</script>
+
+</html>

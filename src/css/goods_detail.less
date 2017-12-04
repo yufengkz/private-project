@@ -1,0 +1,377 @@
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+　　color: #fca08c;
+}
+body,html{
+    background: #f2f2f2;
+}
+
+
+//main
+//banner
+.banner{
+    width: 100%;
+    margin-bottom: .08rem;
+   
+    .slider-item{
+        img{
+            min-height: 6.3rem;
+        }
+    }
+    
+    .slider-pagination{
+        
+        .slider-pagination-item{
+            width: .14rem;
+            height: .14rem;
+            background-color: #fff;
+        }
+        .slider-pagination-item-active{
+            background-color: #ef684a;
+        }
+    }
+    
+    //goods title
+    .goods_title{
+        height: 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        
+        .lt_side{
+            width: 76%;
+            height: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: .3rem;
+            
+            h2{
+                width: 100%;
+                font-size: .22rem;
+                line-height: .38rem;
+                color: #4b4b4b;
+                font-family: "微软雅黑";
+            }
+            .list-mes-item{
+                display: flex;
+                justify-content: space-between;
+                .list-price{
+                    color: #f2674b;
+                }
+                .list-del-price{
+                    margin-right: .1rem;
+                    &:after{
+                        border-top: none;
+                    }
+                }
+            }
+        }
+        
+        .rt_side {
+            width: 22%;
+            height: 1.1rem;
+            border-left: 1px solid #e6e6e6;
+            
+            .grids-item{
+                width: 100%;
+                padding: 0;
+                
+                i{
+                    font-size: .5rem;
+                    color: #ef684a;
+                }
+                
+                &:after{
+                    border-bottom: 1px solid transparent;
+                }
+                
+                .grids-txt{
+                    color: #999;
+                }
+            }
+            
+        }
+    }
+}
+
+/*商品详情 评价*/
+.m-tab{
+    margin-bottom: 1.2rem;
+    
+    .tab-panel{
+        .tab-panel-item{
+            padding: 0;
+        }
+        
+        .goods_detail{
+            padding: 0;
+            img{
+                width: 100%;
+                margin-bottom: .1rem;
+            }
+        }
+    }
+    
+    
+    //评价
+    .evaluate_box{
+        li{
+            border-bottom: 1px solid #e6e6e6;
+            padding: .1rem 0.2rem;
+        }
+    }
+    .evaluate{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .evaluate_header{
+            display: flex;
+            align-items: center;
+            div{
+                width: .8rem;
+                height: .8rem;
+                background: #ccc;
+                border-radius: 50%;
+                overflow: hidden;
+                img{
+                    width: .8rem;
+                    height: .8rem;
+                }
+            }
+            p{
+                margin-left: .2rem;
+                font-size: .2rem;
+                color: #555;
+            }
+        }
+        span{
+            color: #999;
+        }
+    }
+    .msg{
+        margin-top: .1rem;
+        _border-top: 1px solid #f0f0f0;
+        line-height: .4rem;
+        padding-top: .1rem;
+        color: #666;
+    }
+}
+
+/*footer*/
+.foot_nav{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .98rem;
+    background: #fff;
+    
+    ul{
+        height: 100%;
+        display: flex;
+        
+        li:nth-child(1){
+            flex: 1;
+            .icon-phone2{
+                font-size: .46rem;
+                color: #7b7b7b;
+            }
+            .grids-txt{
+                color: #7b7b7b;    
+            }
+        }
+        li:nth-child(2){
+            flex: 1;
+            .icon-shopcart-outline{
+                font-size: .46rem;
+                color: #7b7b7b;
+            }
+            .grids-txt{
+                color: #7b7b7b;    
+            }
+            .badge{
+                left: -0.6rem;
+                top: -0.15rem;
+            }
+        }
+        li:nth-child(3){
+            flex: 1.5;
+            line-height: .98rem;
+            text-align: center;
+            background: #ff9600;
+            color: #fff;
+            font-size: .22rem;
+        }
+        li:nth-child(4){
+            flex: 1.5;
+            line-height: .98rem;
+            text-align: center;
+            background: #df262a;
+            color: #fff;
+            font-size: .22rem;
+        }
+    }
+}
+
+/*car*/
+.shadow{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    z-index: 9;
+    display: none;
+}
+.car{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 7rem;
+    background: #fff;
+    
+    .close_btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        width: .69rem;
+        height: .67rem;
+	    background-image: url(../images/ico_close.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 0.69rem 0.67rem;
+    }
+    
+    .car_box {
+        .car_head{
+            position: relative;
+            padding-bottom: .1rem;
+            border-bottom: 1px solid #ccc;
+            a{
+                position: absolute;
+                top: -.23rem;
+                left: .38rem;
+                width: 1.8rem;
+                height: 1.8rem;
+                border-radius: .1rem;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+            div{
+                margin-left: 2.54rem;
+                padding: .5rem 0 0 0 ;
+                
+                p{
+                    font-size: .24rem;
+                    color: #808080;
+                    line-height: 0.38rem;
+                }
+            }
+        }
+        
+        .skus{
+            padding-left: .45rem;
+            padding-bottom: 0.15rem;
+            border-bottom: 1px solid #e6e6e6;
+            h5{
+                color: #808080;
+                font-size: .24rem;
+                font-weight: normal;
+                line-height: .45rem;
+                margin-top: 0.1rem;
+            }
+            p{
+                _margin-top: .05rem;
+                a{
+                    display: inline-block;
+                    height: .46rem;
+                    line-height: .46rem;
+                    padding: 0 .24rem;
+                    margin-right: .26rem;
+                    font-size: .24rem;
+                    color: #808080;
+                    border: 1px solid #808080;
+                    border-radius: .06rem;
+                }
+                .on{
+                    color: #f2674b;
+                    border: 1px solid #f2674b;
+                    background: #f2674b;
+                    color: #fff;
+                }
+            }
+        }
+        
+        .count{
+            overflow: hidden;
+            padding-top: .29rem;
+            padding-left: .45rem;
+            .J_Qtxt{
+                color: #808080;
+                font-size: .24rem;
+                line-height: .57rem;
+                float: left;
+            }
+            .m-spinner{
+                border: 1px solid #f2674b;
+                border-radius: 0.08rem;
+                margin-left: .1rem;
+            }
+            .J_Del{
+                width: .57rem;
+                height: .46rem;
+                line-height: .46rem;
+                background: #f2674b;
+                &:after{
+                    color: #fff;
+                }
+            }
+            .J_Add{
+                width: .57rem;
+                height: .46rem;
+                line-height: .46rem;
+                background: #f2674b;
+                &:after{
+                    color: #fff;
+                }
+            }
+            .J_Input{
+                width: .9rem;
+                height: .46rem;
+                line-height: .46rem;
+                color: #808080;
+            }
+        }
+        
+    }
+    
+    .car_btn{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.98rem;
+        text-align: center;
+        line-height: 0.98rem;
+        font-size: .28rem;
+        color: #fff;
+        background: #f2674b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

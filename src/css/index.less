@@ -1,5 +1,3 @@
-//header
-
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 　　color: #fca08c;
 }
@@ -7,7 +5,9 @@ body,html{
     background: #fff;
 }
 
+//header
 .m-navbar{
+    height: 1rem;
     justify-content: space-between;
     align-items: center;
     .class_ify{
@@ -129,10 +129,11 @@ body,html{
     a{
         padding: 0;
         padding: 0 2px;
+            width: 3.65rem;
         
         img{
             width: 100%;
-            height: 2.1rem;
+            height:100%;
         }
     }
     
@@ -142,10 +143,15 @@ body,html{
         margin-top: .10rem;
         a{
             width: 100%;
+            img{
+                width: 100%;
+                height:100%;
+            }
         }
     }
 }
 
+//下拉加载 上啦加载
 /*
  * 自定义下拉刷新
  * 
@@ -223,25 +229,25 @@ body,html{
         padding: 0 2px;
         margin-top: 4px;
         margin-bottom: .1rem;
+        
         a.list-item{
             width: 100%;
             float: inherit;
             padding: 0;
             margin-top: 0;
+            border: 1px solid #dddddd;
         }
     }
     
     .list-img{
         width: 100%;
-        height: 2.5rem;
-        padding: 25% 0;
-        border: 1px solid #f1674a;
         overflow: hidden;
+        //height: 2.5rem;
+        //padding: 25% 0;
+        //border: 1px solid #f1674a;
         
         img{
             width: 100%;
-            height: 2.5rem;
-            margin-top: -25%;
         }
     }
     
@@ -260,8 +266,91 @@ body,html{
     }
 }
 
+//footer tab
+.m-tabbar{
+    background: #f2664b;
+    
+    .ico_home{
+        width: .46rem;
+        height: .41rem;
+        background-image: url(../images/ico_home.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: .46rem .41rem;
+    }
+    .ico_classify{
+        width: .46rem;
+        height: .41rem;
+        background-image: url(../images/ico_nav_classify.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: .46rem .41rem;
+    }
+    .ico_car{
+        width: .46rem;
+        height: .41rem;
+        background-image: url(../images/ico_car.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: .46rem .41rem;
+    }
+    .ico_user{
+        width: .46rem;
+        height: .41rem;
+        background-image: url(../images/ico_user.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: .46rem .41rem;
+    }
+    
+    .tabbar-txt{
+        color: #eea093;    
+    }
+    
+    .tabbar-active{
+        
+        .tabbar-txt{
+            color: #fff;    
+        }
+        .ico_home{
+            width: .46rem;
+            height: .41rem;
+            background-image: url(../images/ico_home_active.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: .46rem .41rem;
+        }
+        .ico_classify{
+            width: .46rem;
+            height: .41rem;
+            background-image: url(../images/ico_nav_classify_active.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: .46rem .41rem;
+        }
+        .ico_car{
+            width: .46rem;
+            height: .41rem;
+            background-image: url(../images/ico_car_active.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: .46rem .41rem;
+        }
+        .ico_user{
+            width: .46rem;
+            height: .41rem;
+            background-image: url(../images/ico_user_active.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: .46rem .41rem;
+        }
+    }
+}
 
-
+//返回顶部按钮
+.mescroll-totop{
+    bottom: 90px;
+}
 
 
 

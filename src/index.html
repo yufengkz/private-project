@@ -136,29 +136,29 @@
         </section>
 
         <footer class="m-tabbar">
-            <a href="#" class="tabbar-item">
+            <a href="#" class="tabbar-item tabbar-active">
                 <span class="tabbar-icon">
-                    <i class="icon-home-outline"></i>
+                    <i class="ico_home"></i>
                 </span>
                 <span class="tabbar-txt">首页</span>
             </a>
             <a href="#" class="tabbar-item">
                 <span class="tabbar-icon">
-                    <i class="icon-shopcart-outline"></i>
+                    <i class="ico_classify"></i>
+                </span>
+                <span class="tabbar-txt">分类</span>
+            </a>
+            <a href="#" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="ico_car"></i>
                 </span>
                 <span class="tabbar-txt">购物车</span>
             </a>
             <a href="#" class="tabbar-item">
                 <span class="tabbar-icon">
-                    <i class="icon-ucenter-outline"></i>
+                    <i class="ico_user"></i>
                 </span>
                 <span class="tabbar-txt">个人中心</span>
-            </a>
-            <a href="#" class="tabbar-item">
-                <span class="tabbar-icon">
-                    <img src="//static.ydcss.com/ydui/img/logo.png">
-                </span>
-                <span class="tabbar-txt">图片</span>
             </a>
         </footer>
     </section>
@@ -238,7 +238,7 @@
             for (var i = 0; i < curPageData.length; i++) {
                 var pd = curPageData[i];
 
-                var str = '<a href="#" class="list-item">';
+                var str = '<a href="/goods_detail.html" class="list-item">';
                 str += '    <div class="list-img">';
                 str += '        <img src="' + pd.pdImg + '">';
                 str += '    </div>';
