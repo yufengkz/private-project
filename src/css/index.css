@@ -226,6 +226,7 @@ html {
   height: 2.5rem;
   padding: 25% 0;
   border: 1px solid #f1674a;
+  overflow: hidden;
 }
 .m-list .list-img img {
   width: 100%;
