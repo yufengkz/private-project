@@ -27,7 +27,7 @@
                 <input type="text" value="" placeholder="搜索您想要的商品名称">
                 <img src="./images/ico_search.png" alt="">
             </div>
-            <a href="#" class="msg">
+            <a href="/message.html" class="msg">
                 <img src="./images/ico_msg.png" alt="">
                 <span class="badge badge-danger">2</span>
             </a>
@@ -305,5 +305,9 @@
         }
     });
 </script>
-
+<script>
+    $(document).keyup(function(ev){
+        if(ev.keyCode == 13) location.href = 'search.html';
+    });
+</script>
 </html>

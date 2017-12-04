@@ -8,7 +8,7 @@ html {
 }
 .banner {
   width: 100%;
-  margin-bottom: .08rem;
+  padding-bottom: .08rem;
 }
 .banner .slider-item img {
   min-height: 6.3rem;
