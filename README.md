@@ -3,7 +3,7 @@
 项目可参考框架：
 
 YDUI：UI框架（http://www.ydui.org/）
-mescroll：上啦加载下拉刷新（http://www.mescroll.com/）
+mescroll：上拉加载下拉刷新（http://www.mescroll.com/）
 ```
 #### 安装项目依赖
 ```
