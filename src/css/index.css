@@ -62,11 +62,11 @@ html {
   z-index: 999;
 }
 .m-slider {
-  height: 4.25rem;
+  _height: 4.25rem;
 }
 .m-slider img {
   width: 100%;
-  height: 4.25rem;
+  _height: 4.25rem;
 }
 .m-slider .slider-pagination {
   width: 1.2rem;

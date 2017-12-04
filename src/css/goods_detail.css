@@ -8,7 +8,6 @@ html {
 }
 .banner {
   width: 100%;
-  padding-bottom: .08rem;
 }
 .banner .slider-item img {
   min-height: 6.3rem;
@@ -77,7 +76,7 @@ html {
 }
 /*商品详情 评价*/
 .m-tab {
-  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 .m-tab .tab-panel .tab-panel-item {
   padding: 0;
@@ -184,9 +183,11 @@ html {
 /*car*/
 .shadow {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 9;
   display: none;
 }
