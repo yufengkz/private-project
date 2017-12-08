@@ -60,6 +60,24 @@
 			numItem.text($(this).val().length + '/' + max);
 		});
 	}
+    //
+    var scoringBox = $('.star');
+    var rateItems = scoringBox.find('i');
+    scoringBox.on('click', 'i', function(){
+         console.log($(this).index());
+        var that = $(this);
+        var currentIndex = $(this).index();
+        var len = rateItems.length;
+        rateItems.removeClass('icon-star-outline');
+        if(currentIndex < len - 1){
+            for(var i = 0; i <= currentIndex; i ++){
+                that.nextAll().removeClass('icon-star').addClass('icon-star-outline')
+                rateItems.eq(i).addClass('icon-star')
+            }
+        }else{
+            rateItems.addClass('icon-star')
+        }
+    });
 </script>
 
 </html>

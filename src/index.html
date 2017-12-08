@@ -20,7 +20,7 @@
     <section class="g-flexview">
         <!-- header -->
         <header class="m-navbar">
-            <a href="/classify.html" class="class_ify">
+            <a href="classify.html" class="class_ify">
                 <img src="./images/ico_classify.png" alt="">
             </a>
             <div class="search_box">
@@ -61,35 +61,35 @@
                 <!--分类-->
                 <div class="classify">
                     <div class="m-grids-4">
-                        <a href="#" class="grids-item">
+                        <a href="assess.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_1.png"></div>
                             <div class="grids-txt"><span>服装</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="###" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_2.png"></div>
                             <div class="grids-txt"><span>箱包</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="classify.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_3.png"></div>
                             <div class="grids-txt"><span>数码/手机</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="goods_detail.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_4.png"></div>
                             <div class="grids-txt"><span>运动</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="order_other.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_5.png"></div>
                             <div class="grids-txt"><span>美食/茶酒</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="refund.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_6.png"></div>
                             <div class="grids-txt"><span>化妆品</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="suggestion.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_7.png"></div>
                             <div class="grids-txt"><span>饰品</span></div>
                         </a>
-                        <a href="#" class="grids-item">
+                        <a href="address_lists.html" class="grids-item">
                             <div class="grids-icon"><img src="images/ico_classify_8.png"></div>
                             <div class="grids-txt"><span>畅销热卖</span></div>
                         </a>
@@ -238,7 +238,7 @@
             for (var i = 0; i < curPageData.length; i++) {
                 var pd = curPageData[i];
 
-                var str = '<a href="/goods_detail.html" class="list-item">';
+                var str = '<a href="goods_detail.html" class="list-item">';
                 str += '    <div class="list-img">';
                 str += '        <img src="' + pd.pdImg + '">';
                 str += '    </div>';
@@ -271,7 +271,7 @@
             setTimeout(function () {
                 $.ajax({
                     type: 'GET',
-                    url: './data/data.json',
+                    url: 'data/data.json',
                     //url: '../res/pdlist1.json?num='+pageNum+'&size='+pageSize,
                     dataType: 'json',
                     success: function (data) {
