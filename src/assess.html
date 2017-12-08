@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>评价</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- YDUI库 -->
+    <link rel="stylesheet" href="./css/ydui.css?rev=@@hash" />
+    <link rel="stylesheet" href="./css/mescroll.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/assess.css" />
+    <script src="./js/ydui.flexible.js"></script>
+</head>
+
+<body>
+    <section class="g-flexview">
+        <!-- main -->
+        <div class="content" id="remark">
+            <div class="title">
+                <span>评价：</span>
+                <div class="star">
+                    <i class="icon-star-outline"></i>
+                    <i class="icon-star-outline"></i>
+                    <i class="icon-star-outline"></i>
+                    <i class="icon-star-outline"></i>
+                    <i class="icon-star-outline"></i>
+                </div>
+            </div>
+            <textarea maxlength="200" name="" id="" cols="30" rows="10" placeholder="发表您的评价吧"></textarea>
+            <p class="total">0/200</p>
+        </div>
+        <div class="btn_box">
+            <button>发表评价</button>
+        </div>
+    </section>
+</body>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./js/ydui.citys.js"></script>
+<script src="./js/ydui.js"></script>
+<script src="./js/mescroll.min.js"></script>
+<script>
+    //剩余字数统计
+	var $remark = $('#remark')
+	var $textArea = $remark.find('textarea')
+	var $numItem = $remark.find('p')
+	statInputNum($textArea, $numItem)
+	function statInputNum(textArea, numItem) {
+		var max = textArea.attr('maxlength')
+		//var curLength;
+		textArea[0].setAttribute("maxlength", max);
+		//curLength = textArea.val().length;
+		//numItem.text(max - curLength);
+		textArea.on('input propertychange', function() {
+			//numItem.text(max - $(this).val().length + '/' + max + '个字'); //还剩几个字
+			numItem.text($(this).val().length + '/' + max);
+		});
+	}
+</script>
+
+</html>

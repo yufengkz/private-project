@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>功夫淘微商店</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- YDUI库 -->
+    <link rel="stylesheet" href="./css/ydui.css?rev=@@hash" />
+    <link rel="stylesheet" href="./css/mescroll.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/address_lists.css" />
+    <script src="./js/ydui.flexible.js"></script>
+</head>
+
+<body>
+    <section class="g-flexview">
+        <!-- main -->
+        <section class="mescroll" id="mescroll">
+            <div class="mescroll-bounce">
+                <!--展示上拉加载的数据列表-->
+                <ul id="dataList" class="address_lists">
+                    <li class="">
+                        <div class="name">
+                            老王<span>158129312312</span>
+                        </div>
+                        <p>北京市朝阳区双营路城锦苑5号楼2单元1304城锦苑5号楼2单元1304城锦苑5号楼2单元1304</p>
+                        <div class="btn_box bd-t">
+                            <div class="m-checkbox">
+                                <i class="icon-checkon check">默认地址</i>
+                            </div>
+                            <a  href="###"><i class="icon-delete"></i>&nbsp;&nbsp;删除</a>
+                            <a class="edit" href="###"><i class="icon-compose"></i>&nbsp;&nbsp;编辑</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+</body>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./js/ydui.citys.js"></script>
+<script src="./js/ydui.js"></script>
+<script src="./js/mescroll.min.js"></script>
+<script>
+    $(function () {
+        //创建MeScroll对象
+        var mescroll = new MeScroll("mescroll", {
+            down: {
+                auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                callback: downCallback //下拉刷新的回调
+            },
+            up: {
+                auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+                toTop: { //配置回到顶部按钮
+                    src: "../images/mescroll-totop.png", //默认滚动到1000px显示,可配置offset修改
+                    //offset : 1000
+                }
+            }
+        });
+
+        /*下拉刷新的回调 */
+        function downCallback() {
+            //联网加载数据
+            getListDataFromNet(0, 1, function (data) {
+                //联网成功的回调,隐藏下拉刷新的状态
+                mescroll.endSuccess();
+                //设置列表数据
+                setListData(data, false);
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新的状态
+                mescroll.endErr();
+            });
+        }
+
+        /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+        function upCallback(page) {
+            //联网加载数据
+            getListDataFromNet(page.num, page.size, function (curPageData) {
+                //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+                console.log("page.num=" + page.num + ", page.size=" + page.size + ", curPageData.length=" + curPageData.length);
+
+                //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                //mescroll.endByPage(curPageData.length, totalPage); //必传参数(当前页的数据个数, 总页数)
+
+                //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                //mescroll.endBySize(curPageData.length, totalSize); //必传参数(当前页的数据个数, 总数据量)
+
+                //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                //mescroll.endSuccess(curPageData.length, hasNext); //必传参数(当前页的数据个数, 是否有下一页true/false)
+
+                //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据,如果传了hasNext,则翻到第二页即可显示无更多数据.
+                mescroll.endSuccess(curPageData.length);
+
+                //设置列表数据
+                setListData(curPageData, true);
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+                mescroll.endErr();
+            });
+        }
+
+        /*设置列表数据*/
+        function setListData(curPageData, isAppend) {
+            var listDom = document.getElementById("dataList");
+            for (var i = 0; i < curPageData.length; i++) {
+                var newObj = curPageData[i];
+
+                var shtml = '<div class="name">';
+                shtml += '    老王<span>158129312312</span>';
+                shtml += '</div>';
+                shtml += '<p>北京市朝阳区双营路城锦苑5号楼2单元1304城锦苑5号楼2单元1304城锦苑5号楼2单元1304</p>';
+                shtml += '<div class="btn_box bd-t">';
+                shtml += '    <div class="m-checkbox">';
+                shtml += '        <i class="icon-checkon">默认地址</i>';
+                shtml += '    </div>';
+                shtml += '    <a  href="###"><i class="icon-delete"></i>&nbsp;&nbsp;删除</a>';
+                shtml += '    <a class="edit" href="###"><i class="icon-compose"></i>&nbsp;&nbsp;编辑</a>';
+                shtml += '</div>';
+                
+                var liDom = document.createElement("li");
+                liDom.innerHTML = shtml;
+
+                if (isAppend) {
+                    listDom.appendChild(liDom); //加在列表的后面,上拉加载
+                } else {
+                    listDom.insertBefore(liDom, listDom.firstChild); //加在列表的前面,下拉刷新
+                }
+            }
+        }
+
+        /*联网加载列表数据*/
+        var downIndex = 0;
+        
+        /*联网加载列表数据*/
+        function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
+            //延时一秒,模拟联网
+            setTimeout(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: './data/data.json',
+                    //url: '../res/pdlist1.json?num='+pageNum+'&size='+pageSize,
+                    dataType: 'json',
+                    success: function (data) {
+                        var listData = [];
+
+                        if (pageNum == 0) {
+                            //此处模拟下拉刷新返回的数据
+                            var i = Math.floor(Math.random() * data.length); //随机取一个商品返回
+                            data[i].pdName = '【新增商品】 商品标题';
+                            listData.push(data[i]);
+
+                        } else {
+                            //此处模拟上拉加载返回的数据 (模拟分页数据)
+                            for (var i = (pageNum - 1) * pageSize; i < pageNum * pageSize; i++) {
+                                if (i == data.length) break;
+                                listData.push(data[i]);
+                            }
+                        }
+
+                        //回调
+                        successCallback(listData);
+                        check();
+                    },
+                    error: errorCallback
+                });
+            }, 2000)
+        }
+
+        //禁止PC浏览器拖拽图片,避免与下拉刷新冲突;如果仅在移动端使用,可删除此代码
+        document.ondragstart = function () {
+            return false;
+        }
+        
+        function check(){
+            var aCheckbox = $('.icon-checkon');
+            aCheckbox.on('click', function(){
+                var checkElm = $('.address_lists .icon-checkon');
+                checkElm.removeClass('check')
+                $(this).addClass('check');
+            });
+        }
+    });
+</script>
+
+</html>
