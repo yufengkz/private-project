@@ -10,7 +10,7 @@ html {
   width: 100%;
 }
 .banner .slider-item img {
-  min-height: 6.3rem;
+  max-height: 6.3rem;
 }
 .banner .slider-pagination .slider-pagination-item {
   width: .14rem;

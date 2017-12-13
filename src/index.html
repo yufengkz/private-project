@@ -24,7 +24,7 @@
                 <img src="./images/ico_classify.png" alt="">
             </a>
             <div class="search_box">
-                <input id="search" type="text" value="" placeholder="搜索您想要的商品名称">
+                <input disabled id="search" type="text" value="" placeholder="搜索您想要的商品名称">
                 <img src="./images/ico_search.png" alt="">
             </div>
             <a href="/message.html" class="msg">
@@ -309,7 +309,7 @@
     $(document).keyup(function(ev){
         if(ev.keyCode == 13) location.href = 'search.html';
     });
-    $('#search').focus(function(){
+    $('.search_box').click(function(){
         location.href = 'search.html';
     })
 </script>
