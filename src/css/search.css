@@ -65,10 +65,19 @@ html {
   padding-bottom: .2rem;
 }
 .history h4 {
-  font-size: .20rem;
+  font-size: .24rem;
   padding: .2rem;
   color: #666;
   font-weight: normal;
+  overflow: hidden;
+}
+.history h4 span {
+  float: right;
+  padding: 0.05rem 0.2rem;
+  border-radius: .2rem;
+  background: #f5f5f5;
+  color: #999;
+  font-size: 0.18rem;
 }
 .history p {
   padding: 0 .2rem;
