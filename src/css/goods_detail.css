@@ -22,17 +22,30 @@ html {
 }
 .banner .goods_title {
   height: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #fff;
 }
 .banner .goods_title .lt_side {
   width: 76%;
   height: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-left: .3rem;
 }
 .banner .goods_title .lt_side h2 {
@@ -43,8 +56,12 @@ html {
   font-family: "微软雅黑";
 }
 .banner .goods_title .lt_side .list-mes-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .banner .goods_title .lt_side .list-mes-item .list-price {
   color: #f2674b;
@@ -93,13 +110,23 @@ html {
   padding: .1rem 0.2rem;
 }
 .m-tab .evaluate {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .m-tab .evaluate .evaluate_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .m-tab .evaluate .evaluate_header div {
   width: .8rem;
@@ -138,10 +165,14 @@ html {
 }
 .foot_nav ul {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .foot_nav ul li:nth-child(1) {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .foot_nav ul li:nth-child(1) .icon-phone2 {
   font-size: .46rem;
@@ -151,7 +182,9 @@ html {
   color: #7b7b7b;
 }
 .foot_nav ul li:nth-child(2) {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .foot_nav ul li:nth-child(2) .icon-shopcart-outline {
   font-size: .46rem;
@@ -165,7 +198,9 @@ html {
   top: -0.15rem;
 }
 .foot_nav ul li:nth-child(3) {
-  flex: 1.5;
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
   line-height: .98rem;
   text-align: center;
   background: #ff9600;
@@ -173,7 +208,9 @@ html {
   font-size: .22rem;
 }
 .foot_nav ul li:nth-child(4) {
-  flex: 1.5;
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
   line-height: .98rem;
   text-align: center;
   background: #df262a;

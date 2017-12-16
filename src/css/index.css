@@ -8,8 +8,12 @@ html {
 }
 .m-navbar {
   height: 1rem;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .m-navbar .class_ify {
   margin-left: .14rem;
@@ -41,7 +45,8 @@ html {
   position: absolute;
   top: 50%;
   right: .24rem;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: .44rem;
   height: .44rem;
 }
@@ -141,6 +146,9 @@ html {
 	</div>
  */
 /*下拉刷新--标语*/
+.mescroll {
+  padding-bottom: 1rem;
+}
 .mescroll-downwarp .downwarp-slogan {
   display: block;
   width: 210px;

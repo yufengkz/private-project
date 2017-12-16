@@ -1,0 +1,91 @@
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #fca08c;
+}
+body,
+html {
+  background: #fff;
+}
+.mescroll-totop {
+  bottom: 90px;
+}
+.m-cell {
+  margin-bottom: 0;
+}
+.m-cell .cell-left {
+  font-size: 0.28rem;
+  color: #343434;
+}
+.m-cell .cell-right {
+  font-size: 0.26rem;
+  color: #858585;
+}
+.m-cell .cell-arrow:after {
+  font-size: 0.28rem;
+  color: #858585;
+}
+.mell-lists .cell-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.mell-lists .cell-up .cell-left {
+  margin-left: 0.2rem;
+  font-size: 0.28rem;
+  color: #343434;
+}
+.mell-lists .cell-up .cell-right {
+  height: 0.8rem;
+  min-height: 0.8rem;
+  font-size: 0.26rem;
+  color: #858585;
+}
+.mell-lists .cell-up .cell-arrow:after {
+  font-size: 0.28rem;
+  color: #858585;
+}
+.mell-lists .cell-down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.mell-lists .cell-down a {
+  font-size: 0.24rem;
+  padding: 0.12rem 0.34rem;
+  background: #f2f2f2;
+  color: #343434;
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.15rem;
+}
+.mell-lists .cell-down .on {
+  background: #f2674b;
+  color: #fff;
+}
+.btn_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.btn_box button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  outline: none;
+  height: 1rem;
+  line-height: 1rem;
+  color: #3c3c3c;
+  font-size: 0.28rem;
+  background: #e4e4e4;
+}
+.btn_box .sub {
+  background: #f2674b;
+  color: #fff;
+}
