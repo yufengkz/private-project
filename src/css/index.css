@@ -243,9 +243,13 @@ html {
 .m-list .list-img {
   width: 100%;
   overflow: hidden;
+  height: 2.5rem;
+  padding: 0;
 }
 .m-list .list-img img {
-  width: 100%;
+  width: 3.65rem;
+  height: 2.5rem;
+  margin-top: 0;
 }
 .m-list .list-title {
   font-size: .24rem;
